@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #e3c9c9;
+  --secondary-color: #0e6e7a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Spacing */
+.pt-medium {
+  padding-top: 40px;
+}
+
+.mt-large {
+  margin-top: 60px;
+}
+
+/* font style */
+.font-style {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Main */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+h1 {
+  font-size: 54px;
+  font-weight: bold;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+
+.cell {
+  width: 110px;
+  height: 110px;
+  border: 3px solid var(--secondary-color);
+  cursor: pointer;
+  font-size: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell:first-child, .cell:nth-child(2), .cell:nth-child(3) {
+	border-top: none;
+}
+
+.cell:nth-child(1), .cell:nth-child(4), .cell:nth-child(7) {
+	border-left: none;
+}
+
+.cell:nth-child(3), .cell:nth-child(6), .cell:nth-child(9) {
+	border-right: none;
+}
+
+.cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) {
+	border-bottom: none;
+}
+
+.message {
+  background-color: rgb(14 110 122 / 94%);
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  top: 165px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* button */
+.btn {
+  border-radius: 8px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  padding: 10px 15px;
+  border: 2px solid var(--secondary-color);
+  background-color: var(--primary-color);
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 20px 35px 0 rgba(0,0,0,0.45),0 20px 35px 0 rgba(0,0,0,0.25);  
+}
+
+/* responsive */
+@media(max-width: 550px) {
+  h1 {
+    font-size: 36px;
+  }
+}
