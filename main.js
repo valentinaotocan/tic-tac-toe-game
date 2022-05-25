@@ -24,10 +24,10 @@ function cellClicked(e) {
       message();
       return;
     }
-    // else if (draw()) {
-    //   message();
-    //   return;
-    // }
+    else if (draw()) {
+      message();
+      return;
+    }
     
     if (currentPlayer === playerX) {
       return (currentPlayer = playerO);
@@ -68,11 +68,11 @@ function playerWon() {
   }
 }
 
-// function draw() {
-//   if (!playerWon()) {
-//     return true;
-//   }
-// }
+function draw() {
+  if (board.filter(cell => typeof cell === 'string').length === 9 && !playerWon()) {
+    return true;
+  }
+}
 
 function message() {
   textMessage.classList.add('message');
