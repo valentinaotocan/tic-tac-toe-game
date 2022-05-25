@@ -19,7 +19,6 @@ function cellClicked(e) {
   if (!board[id]) {
     board[id] = currentPlayer;
     e.target.innerHTML = currentPlayer;
-
     if (playerWon()) {
       message();
       return;
@@ -28,50 +27,32 @@ function cellClicked(e) {
       message();
       return;
     }
-    
     if (currentPlayer === playerX) {
       return (currentPlayer = playerO);
     } else {
       return (currentPlayer = playerX);
     }
-  }
-  
+  } 
 }
 
 function playerWon() {
+  return (
   // horizontally
-  if (board[0] === currentPlayer && board[0] === board[1] && board[1] === board[2]) {
-    return true;
-  }
-  if (board[3] === currentPlayer && board[3] === board[4] && board[4] === board[5]) {
-    return true;
-  }
-  if (board[6] === currentPlayer && board[6] === board[7] && board[6] === board[8]) {
-    return true;
-  }
+  board[0] === currentPlayer && board[0] === board[1] && board[1] === board[2] ||
+  board[3] === currentPlayer && board[3] === board[4] && board[4] === board[5] ||
+  board[6] === currentPlayer && board[6] === board[7] && board[6] === board[8] ||
   //vertically 
-  if (board[0] === currentPlayer && board[0] === board[3] && board[3] === board[6]) {
-    return true;
-  }
-  if (board[1] === currentPlayer && board[1] === board[4] && board[4] === board[7]) {
-    return true;
-  }
-  if (board[2] === currentPlayer && board[2] === board[5] && board[5] === board[8]) {
-    return true;
-  }
+  board[0] === currentPlayer && board[0] === board[3] && board[3] === board[6] ||
+  board[1] === currentPlayer && board[1] === board[4] && board[4] === board[7] ||
+  board[2] === currentPlayer && board[2] === board[5] && board[5] === board[8] ||
   // diagonally
-  if (board[0] === currentPlayer && board[0] === board[4] && board[4] === board[8]) {
-    return true;
-  }
-  if (board[6] === currentPlayer && board[6] === board[4] && board[4] === board[2]) {
-    return true;
-  }
+  board[0] === currentPlayer && board[0] === board[4] && board[4] === board[8] ||
+  board[6] === currentPlayer && board[6] === board[4] && board[4] === board[2] 
+  )
 }
 
 function draw() {
-  if (board.filter(cell => typeof cell === 'string').length === 9 && !playerWon()) {
-    return true;
-  }
+  return board.filter(cell => typeof cell === 'string').length === 9 && !playerWon();
 }
 
 function message() {
